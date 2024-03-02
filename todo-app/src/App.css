@@ -1,0 +1,27 @@
+h1 {
+  font-weight: 600;
+  font-size: 30px;
+  padding-bottom: 20px;
+  font-style: italic;
+}
+
+input{
+  width: 100%;
+}
+
+.col-6{
+  text-align: left;
+}
+
+.jc-row{
+  margin:17px 5px;
+}
+
+.jc-button{
+  min-width: 75px;
+  text-align: center;
+}
+
+.col-4{
+  text-align: left;
+}
