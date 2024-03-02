@@ -1,0 +1,193 @@
+{
+	"info": {
+		"_postman_id": "2e672390-5f77-4baf-9ede-2bfa7720481c",
+		"name": "cineflex",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Movies",
+			"item": [
+				{
+					"name": "GetAllMovies",
+					"id": "2d3b2354-4d43-4f97-8359-02ef83198a49",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{URL}}api/v1/movies"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateMovie",
+					"id": "e823eb55-a44d-41dd-9a16-e372c6d03fff",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}api/v1/movies/"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETEMOvie",
+					"id": "06f5cdc5-aa10-4823-aa65-f02c6dec3704",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{jwt}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{URL}}api/v1/movies/653a2a3dfc0981fbf3da2aba"
+					},
+					"response": []
+				}
+			],
+			"id": "5e8f4580-e388-4cd6-a4e4-758c276608a0"
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "SignUp",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ccb62a82-ba6a-4551-8ee9-0de8c37191f1",
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "750776f5-f406-4444-a697-6ba3458f0bcf",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"name\":\"Test01\",\r\n\"email\":\"Test0@1gmail.com\",\r\n\"password\":\"1234ty7890\",\r\n\"ConfirmPassword\":\"1234ty7890\",\r\n\"role\":\"user\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}api/v1/users/signup"
+					},
+					"response": []
+				},
+				{
+					"name": "LogIn",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "426c7764-5a55-492a-a75d-ef0566a98852",
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "bf52bd5d-10ae-453a-9731-5b935a9c2dfc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"Test00@gmail.com\",\r\n\"password\":\"1234ty7890\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}api/v1/users/login"
+					},
+					"response": []
+				},
+				{
+					"name": "forgotPassword",
+					"id": "92d5fa6d-9e0e-42a1-b5d7-68460c929b57",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"test0@1gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}api/v1/users/forgotPassword"
+					},
+					"response": []
+				},
+				{
+					"name": "resetPassword",
+					"id": "f58113cf-fad1-4fab-8d47-6119e903ceaa",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\":\"123xy789\",\r\n    \"ConfirmPassword\":\"123xy789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{URL}}api/v1/users/resetPassword/67695bf22f6e7d7f090255b3c252e91cc884374e2bd7d95e31ae373e965214c4"
+					},
+					"response": []
+				}
+			],
+			"id": "183dc307-d507-4cdf-9fb2-9b0640fb9fe6"
+		}
+	]
+}
